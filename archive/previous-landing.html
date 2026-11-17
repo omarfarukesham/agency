@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faruk Digital — Custom Software & AI Automations | Omar Faruk</title>
+  <meta name="description" content="Custom software, web and mobile apps, AI support chatbots, and business automations for healthcare and service businesses in the US, Canada, and Australia. Work directly with the engineer building your system." />
+  <meta property="og:title" content="Faruk Digital — Custom Software & AI Automations" />
+  <meta property="og:description" content="Production-grade software built by the engineer you talk to. Fixed-price proposals, weekly video updates, full source code handoff." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0F172A',
+            paper: '#F8FAFC',
+            slate: { ink: '#334155' },
+            gold: { DEFAULT: '#D97706', dark: '#B45309' },
+            rule: '#E2E8F0',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          maxWidth: { page: '72rem' },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    section[id] { scroll-margin-top: 5rem; }
+    .eyebrow { font-size: .75rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: #D97706; }
+    h1, h2 { text-wrap: balance; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } }
+  </style>
+</head>
+
+<body class="bg-paper text-slate-ink font-sans antialiased">
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-navy focus:text-white focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
+
+  <!-- NAVIGATION -->
+  <header class="sticky top-0 z-50 bg-paper/95 backdrop-blur border-b border-rule">
+    <nav class="max-w-page mx-auto px-6 lg:px-8 h-16 flex items-center justify-between" aria-label="Primary">
+      <a href="#top" class="font-serif text-xl font-semibold text-navy tracking-tight">
+        Faruk <span class="text-gold">Digital</span>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-8 text-sm font-medium">
+        <a href="#services" class="hover:text-navy transition-colors">Services</a>
+        <a href="#work" class="hover:text-navy transition-colors">Work</a>
+        <a href="#process" class="hover:text-navy transition-colors">Process</a>
+        <a href="#about" class="hover:text-navy transition-colors">About</a>
+        <a href="#contact" class="hover:text-navy transition-colors">Contact</a>
+        <a href="#contact" class="bg-navy text-white px-5 py-2.5 rounded hover:bg-gold transition-colors">Book a Strategy Call</a>
+      </div>
+
+      <button id="menu-toggle" type="button" class="lg:hidden p-2 -mr-2 text-navy" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg id="icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </nav>
+
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-rule bg-paper">
+      <div class="px-6 py-4 flex flex-col text-base font-medium">
+        <a href="#services" class="py-3 border-b border-rule">Services</a>
+        <a href="#work" class="py-3 border-b border-rule">Work</a>
+        <a href="#process" class="py-3 border-b border-rule">Process</a>
+        <a href="#about" class="py-3 border-b border-rule">About</a>
+        <a href="#contact" class="py-3">Contact</a>
+        <a href="#contact" class="mt-3 bg-navy text-white text-center px-5 py-3 rounded">Book a Strategy Call</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section id="top" class="border-b border-rule">
+      <div class="max-w-page mx-auto px-6 lg:px-8 pt-16 pb-16 sm:pt-24 sm:pb-20 lg:pt-28">
+        <p class="eyebrow">Independent software engineering &middot; Healthcare &amp; service businesses</p>
+        <h1 class="mt-6 font-serif font-semibold text-navy text-4xl sm:text-5xl lg:text-6xl leading-[1.12] max-w-5xl">
+          Custom Software &amp; AI Automations for Healthcare and Service Businesses Across the US, Canada, and Australia
+        </h1>
+        <p class="mt-8 text-lg sm:text-xl leading-relaxed max-w-3xl">
+          You work directly with the engineer building your system&mdash;no offshore account managers, no junior dev handoffs. Production-grade backend architecture with founder-level attention.
+        </p>
+
+        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+          <a href="#contact" class="inline-flex justify-center items-center bg-gold text-white font-semibold px-7 py-4 rounded hover:bg-gold-dark transition-colors">
+            Book Your Free 20-Minute Call
+          </a>
+          <a href="#work" class="inline-flex justify-center items-center border border-navy text-navy font-semibold px-7 py-4 rounded hover:bg-navy hover:text-white transition-colors">
+            See Recent Work
+          </a>
+        </div>
+
+        <!-- Trust badges -->
+        <ul class="mt-14 pt-8 border-t border-rule grid gap-5 sm:grid-cols-3 text-sm font-medium text-navy">
+          <li class="flex items-center gap-3">
+            <svg class="shrink-0 text-gold" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            5+ Years in Production Healthcare Systems
+          </li>
+          <li class="flex items-center gap-3">
+            <svg class="shrink-0 text-gold" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            HIPAA-Aware &amp; Security Hardened
+          </li>
+          <li class="flex items-center gap-3">
+            <svg class="shrink-0 text-gold" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            US/CA/AU Timezone Friendly
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CLIENT TRUST BAR -->
+    <!-- PLACEHOLDER LOGOS: replace with real client logos (with permission) before launch, or remove this section. -->
+    <section aria-label="Clients" class="bg-white border-b border-rule">
+      <div class="max-w-page mx-auto px-6 lg:px-8 py-12">
+        <p class="text-center text-sm text-slate-500 max-w-2xl mx-auto">
+          Trusted by clinic owners, operators, and service businesses across North America and Australia
+        </p>
+        <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 items-center justify-items-center">
+          <img class="grayscale opacity-70" src="https://placehold.co/160x48/F1F5F9/64748B?text=ClinicName+160x48" width="160" height="48" alt="Client logo placeholder" loading="lazy" />
+          <img class="grayscale opacity-70" src="https://placehold.co/160x48/F1F5F9/64748B?text=DentalGroup+160x48" width="160" height="48" alt="Client logo placeholder" loading="lazy" />
+          <img class="grayscale opacity-70" src="https://placehold.co/160x48/F1F5F9/64748B?text=PhysioCo+160x48" width="160" height="48" alt="Client logo placeholder" loading="lazy" />
+          <img class="grayscale opacity-70" src="https://placehold.co/160x48/F1F5F9/64748B?text=FieldServ+160x48" width="160" height="48" alt="Client logo placeholder" loading="lazy" />
+          <img class="grayscale opacity-70 col-span-2 sm:col-span-1" src="https://placehold.co/160x48/F1F5F9/64748B?text=CarePoint+160x48" width="160" height="48" alt="Client logo placeholder" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="border-b border-rule">
+      <div class="max-w-page mx-auto px-6 lg:px-8 py-20 lg:py-28">
+        <div class="max-w-2xl">
+          <p class="eyebrow">Services</p>
+          <h2 class="mt-4 font-serif font-semibold text-navy text-3xl sm:text-4xl lg:text-5xl">What I Build</h2>
+          <p class="mt-5 text-lg leading-relaxed">
+            Five disciplines, one engineer accountable for all of them. Every system is architected to hold up under real traffic, real data, and real audits.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-6">
+
+          <article class="lg:col-span-2 bg-white border border-rule rounded p-8 hover:border-navy transition-colors">
+            <svg class="text-gold" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9h20M6 6.5h.01M9 6.5h.01"/></svg>
+            <h3 class="mt-6 font-serif text-xl font-semibold text-navy">Custom Web Apps</h3>
+            <p class="mt-3 leading-relaxed">High-performance React/Next.js platforms built for your exact workflow, not a template. Your staff gets software that matches how the business already runs.</p>
+            <ul class="mt-6 flex flex-wrap gap-2 text-xs font-medium">
+              <li class="border border-rule rounded-sm px-2.5 py-1">React</li>
+              <li class="border border-rule rounded-sm px-2.5 py-1">Next.js</li>
+              <li class="border border-rule rounded-sm px-2.5 py-1">Redux</li>
+            </ul>
+          </article>
+
+          <article class="lg:col-span-2 bg-white border border-rule rounded p-8 hover:border-navy transition-colors">
+            <svg class="text-gold" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>
+            <h3 class="mt-6 font-serif text-xl font-semibold text-navy">Mobile Apps</h3>
+            <p class="mt-3 leading-relaxed">Cross-platform iOS and Android apps that sync with your existing backend. One codebase, two app stores, no duplicated maintenance bill.</p>
+            <ul class="mt-6 flex flex-wrap gap-2 text-xs font-medium">
+              <li class="border border-rule rounded-sm px-2.5 py-1">React Native</li>
+              <li class="border border-rule rounded-sm px-2.5 py-1">Firebase</li>
+            </ul>
+          </article>
+
+          <article class="lg:col-span-2 bg-white border border-rule rounded p-8 hover:border-navy transition-colors">
+            <svg class="text-gold" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg>
+            <h3 class="mt-6 font-serif text-xl font-semibold text-navy">AI Support Chatbots</h3>
+            <p class="mt-3 leading-relaxed">24/7 customer capture and patient intake using modern LLMs integrated into your stack. Every conversation lands in your system, not a separate inbox.</p>
+            <ul class="mt-6 flex flex-wrap gap-2 text-xs font-medium">
+              <li class="border border-rule rounded-sm px-2.5 py-1">OpenAI</li>
+              <li class="border border-rule rounded-sm px-2.5 py-1">NestJS</li>
+            </ul>
+          </article>
+
+          <article class="lg:col-span-3 bg-white border border-rule rounded p-8 hover:border-navy transition-colors">
+            <svg class="text-gold" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></svg>
+            <h3 class="mt-6 font-serif text-xl font-semibold text-navy">Business Automations</h3>
+            <p class="mt-3 leading-relaxed">Replace spreadsheets and manual follow-ups with reliable, automated pipelines. Each one is monitored and logged, so nothing fails silently.</p>
+            <ul class="mt-6 flex flex-wrap gap-2 text-xs font-medium">
+              <li class="border border-rule rounded-sm px-2.5 py-1">Node.js</li>
+              <li class="border border-rule rounded-sm px-2.5 py-1">Webhooks</li>
+            </ul>
+          </article>
+
+          <article class="md:col-span-2 lg:col-span-3 bg-white border border-rule rounded p-8 hover:border-navy transition-colors">
+            <svg class="text-gold" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="7" rx="1.5"/><rect x="3" y="14" width="18" height="7" rx="1.5"/><path d="M7 6.5h.01M7 17.5h.01"/></svg>
+            <h3 class="mt-6 font-serif text-xl font-semibold text-navy">Backend Systems</h3>
+            <p class="mt-3 leading-relaxed">Scalable APIs, microservices, and cloud infrastructure on AWS. The backbone that keeps everything else fast, secure, and available.</p>
+            <ul class="mt-6 flex flex-wrap gap-2 text-xs font-medium">
+              <li class="border border-rule rounded-sm px-2.5 py-1">NestJS</li>
+              <li class="border border-rule rounded-sm px-2.5 py-1">MongoDB</li>
+              <li class="border border-rule rounded-sm px-2.5 py-1">Docker</li>
+              <li class="border border-rule rounded-sm px-2.5 py-1">AWS</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="bg-white border-b border-rule">
+      <div class="max-w-page mx-auto px-6 lg:px-8 py-20 lg:py-28">
+        <div class="max-w-2xl">
+          <p class="eyebrow">Process</p>
+          <h2 class="mt-4 font-serif font-semibold text-navy text-3xl sm:text-4xl lg:text-5xl">How We Work Together</h2>
+          <p class="mt-5 text-lg leading-relaxed">
+            Four steps, no surprises. You know the price, the milestones, and the delivery date before any code is written.
+          </p>
+        </div>
+
+        <ol class="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+          <li class="relative lg:pr-8">
+            <div class="flex items-center gap-4">
+              <span class="font-serif text-3xl font-semibold text-gold">01</span>
+              <span class="hidden lg:block h-px flex-1 bg-rule"></span>
+            </div>
+            <h3 class="mt-5 font-serif text-xl font-semibold text-navy">Discovery</h3>
+            <p class="mt-3 leading-relaxed">You explain the problem. I ask the hard questions about workflow, not just features.</p>
+          </li>
+          <li class="relative lg:pr-8">
+            <div class="flex items-center gap-4">
+              <span class="font-serif text-3xl font-semibold text-gold">02</span>
+              <span class="hidden lg:block h-px flex-1 bg-rule"></span>
+            </div>
+            <h3 class="mt-5 font-serif text-xl font-semibold text-navy">Scope &amp; Proposal</h3>
+            <p class="mt-3 leading-relaxed">Fixed-price proposal with clear milestones. No hourly bait-and-switch.</p>
+          </li>
+          <li class="relative lg:pr-8">
+            <div class="flex items-center gap-4">
+              <span class="font-serif text-3xl font-semibold text-gold">03</span>
+              <span class="hidden lg:block h-px flex-1 bg-rule"></span>
+            </div>
+            <h3 class="mt-5 font-serif text-xl font-semibold text-navy">Build &amp; Deploy</h3>
+            <p class="mt-3 leading-relaxed">Weekly Loom video updates. You see progress without constant meetings.</p>
+          </li>
+          <li class="relative">
+            <div class="flex items-center gap-4">
+              <span class="font-serif text-3xl font-semibold text-gold">04</span>
+            </div>
+            <h3 class="mt-5 font-serif text-xl font-semibold text-navy">Handoff &amp; Support</h3>
+            <p class="mt-3 leading-relaxed">Full source code, documentation, and 30 days post-launch support.</p>
+          </li>
+        </ol>
+
+        <p class="mt-14 inline-flex items-center gap-3 border border-rule rounded px-5 py-3 text-sm font-medium text-navy">
+          <svg class="text-gold shrink-0" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Typical MVP timeline: 4&ndash;8 weeks
+        </p>
+      </div>
+    </section>
+
+    <!-- WORK / CASE STUDIES -->
+    <!-- PLACEHOLDER CASE STUDIES: confirm each project and metric reflects real, verifiable work before launch. -->
+    <section id="work" class="border-b border-rule">
+      <div class="max-w-page mx-auto px-6 lg:px-8 py-20 lg:py-28">
+        <div class="max-w-2xl">
+          <p class="eyebrow">Work</p>
+          <h2 class="mt-4 font-serif font-semibold text-navy text-3xl sm:text-4xl lg:text-5xl">Recent Work</h2>
+          <p class="mt-5 text-lg leading-relaxed">
+            Each project started with an expensive manual process and ended with a system the client owns outright.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-8 lg:grid-cols-3">
+
+          <article class="bg-white border border-rule rounded overflow-hidden flex flex-col">
+            <img src="https://placehold.co/640x360/0F172A/F8FAFC?text=Patient+Portal+640x360" width="640" height="360" alt="Patient portal project screenshot placeholder" class="w-full aspect-video object-cover" loading="lazy" />
+            <div class="p-8 flex flex-col flex-1">
+              <p class="text-xs font-medium tracking-wide text-slate-500">React &middot; Node.js &middot; AWS</p>
+              <h3 class="mt-3 font-serif text-xl font-semibold text-navy">Patient Portal for Multi-Location Clinic</h3>
+              <dl class="mt-5 space-y-4 text-sm leading-relaxed flex-1">
+                <div>
+                  <dt class="font-semibold text-navy">Challenge</dt>
+                  <dd class="mt-1">Front-desk staff across several locations spent their days on the phone handling bookings, records requests, and reminders.</dd>
+                </div>
+                <div>
+                  <dt class="font-semibold text-navy">Solution</dt>
+                  <dd class="mt-1">A secure self-service portal with role-based access, audit logging, and one shared backend for every location.</dd>
+                </div>
+              </dl>
+              <p class="mt-6 pt-6 border-t border-rule font-semibold text-gold">60% reduction in front-desk admin calls.</p>
+            </div>
+          </article>
+
+          <article class="bg-white border border-rule rounded overflow-hidden flex flex-col">
+            <img src="https://placehold.co/640x360/0F172A/F8FAFC?text=AI+Assistant+640x360" width="640" height="360" alt="AI appointment assistant project screenshot placeholder" class="w-full aspect-video object-cover" loading="lazy" />
+            <div class="p-8 flex flex-col flex-1">
+              <p class="text-xs font-medium tracking-wide text-slate-500">OpenAI API &middot; NestJS &middot; React</p>
+              <h3 class="mt-3 font-serif text-xl font-semibold text-navy">AI Appointment Assistant</h3>
+              <dl class="mt-5 space-y-4 text-sm leading-relaxed flex-1">
+                <div>
+                  <dt class="font-semibold text-navy">Challenge</dt>
+                  <dd class="mt-1">After-hours enquiries went unanswered, and every booking had to be re-typed into the scheduling system by hand.</dd>
+                </div>
+                <div>
+                  <dt class="font-semibold text-navy">Solution</dt>
+                  <dd class="mt-1">An LLM assistant that qualifies the request, checks live availability, and writes the booking straight to the calendar.</dd>
+                </div>
+              </dl>
+              <p class="mt-6 pt-6 border-t border-rule font-semibold text-gold">24/7 booking capture, zero manual entry.</p>
+            </div>
+          </article>
+
+          <article class="bg-white border border-rule rounded overflow-hidden flex flex-col">
+            <img src="https://placehold.co/640x360/0F172A/F8FAFC?text=Field+Ops+App+640x360" width="640" height="360" alt="Field operations mobile app project screenshot placeholder" class="w-full aspect-video object-cover" loading="lazy" />
+            <div class="p-8 flex flex-col flex-1">
+              <p class="text-xs font-medium tracking-wide text-slate-500">React Native &middot; MongoDB &middot; Docker</p>
+              <h3 class="mt-3 font-serif text-xl font-semibold text-navy">Field Operations Mobile App</h3>
+              <dl class="mt-5 space-y-4 text-sm leading-relaxed flex-1">
+                <div>
+                  <dt class="font-semibold text-navy">Challenge</dt>
+                  <dd class="mt-1">Field teams reported jobs on paper and by text message, so headquarters was always working from yesterday's information.</dd>
+                </div>
+                <div>
+                  <dt class="font-semibold text-navy">Solution</dt>
+                  <dd class="mt-1">An offline-first mobile app that queues updates on site and syncs to a central dashboard the moment a signal returns.</dd>
+                </div>
+              </dl>
+              <p class="mt-6 pt-6 border-t border-rule font-semibold text-gold">Real-time sync between field teams and headquarters.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="bg-white border-b border-rule">
+      <div class="max-w-page mx-auto px-6 lg:px-8 py-20 lg:py-28 grid gap-12 lg:grid-cols-12 lg:gap-16 items-center">
+        <div class="lg:col-span-5">
+          <img src="https://placehold.co/560x560/E2E8F0/334155?text=Headshot+560x560" width="560" height="560" alt="Omar Faruk, Founder and Lead Engineer" class="w-full max-w-md aspect-square object-cover rounded border border-rule" loading="lazy" />
+        </div>
+        <div class="lg:col-span-7">
+          <p class="eyebrow">About &middot; Omar Faruk, Founder &amp; Lead Engineer</p>
+          <h2 class="mt-4 font-serif font-semibold text-navy text-3xl sm:text-4xl lg:text-5xl">You&rsquo;re Working Directly With the Engineer</h2>
+          <p class="mt-6 text-lg leading-relaxed">
+            For the past five years, I&rsquo;ve architected backend systems and full-stack platforms for healthcare organizations&mdash;handling secure patient data, CI/CD pipelines, and cloud infrastructure at scale. Today, I partner directly with business owners in the US, Canada, and Australia to replace expensive manual work with reliable software. No agency markup. No communication gaps. Just clean architecture and clear timelines.
+          </p>
+          <p class="mt-6 text-sm text-slate-500">
+            Currently based in [Your City], working overlapping hours with North American and Australian clients.
+          </p>
+          <div class="mt-8 pt-8 border-t border-rule flex flex-col sm:flex-row gap-4 sm:gap-10 text-sm font-medium text-navy">
+            <a href="mailto:omar.lu86@gmail.com" class="inline-flex items-center gap-2.5 hover:text-gold transition-colors">
+              <svg class="text-gold" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              omar.lu86@gmail.com
+            </a>
+            <a href="https://wa.me/8801775070627" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 hover:text-gold transition-colors">
+              <svg class="text-gold" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.7A8.4 8.4 0 1 1 21 11.5z"/></svg>
+              WhatsApp +880 1775 070627
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <!-- PLACEHOLDER TESTIMONIALS: replace with real client quotes (with their permission) before launch. -->
+    <section id="testimonials" class="border-b border-rule">
+      <div class="max-w-page mx-auto px-6 lg:px-8 py-20 lg:py-28">
+        <div class="max-w-2xl">
+          <p class="eyebrow">Testimonials</p>
+          <h2 class="mt-4 font-serif font-semibold text-navy text-3xl sm:text-4xl lg:text-5xl">What Clients Say</h2>
+        </div>
+
+        <div class="mt-14 grid gap-8 lg:grid-cols-3">
+
+          <figure class="bg-white border border-rule border-l-2 border-l-gold rounded-r p-8 flex flex-col">
+            <svg class="text-gold" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 17v-5.5C4 8 6 5.5 9.5 5v2.5C8 8 7 9 7 11h3v6H4zm10 0v-5.5C14 8 16 5.5 19.5 5v2.5C18 8 17 9 17 11h3v6h-6z"/></svg>
+            <blockquote class="mt-5 font-serif italic text-lg leading-relaxed text-navy flex-1">
+              Omar built our patient intake portal in 6 weeks. What used to take 3 staff members now happens automatically.
+            </blockquote>
+            <figcaption class="mt-6 pt-6 border-t border-rule text-sm">
+              <span class="font-semibold text-navy">Dr. Sarah M.</span><br />
+              Clinic Director, Toronto
+            </figcaption>
+          </figure>
+
+          <figure class="bg-white border border-rule border-l-2 border-l-gold rounded-r p-8 flex flex-col">
+            <svg class="text-gold" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 17v-5.5C4 8 6 5.5 9.5 5v2.5C8 8 7 9 7 11h3v6H4zm10 0v-5.5C14 8 16 5.5 19.5 5v2.5C18 8 17 9 17 11h3v6h-6z"/></svg>
+            <blockquote class="mt-5 font-serif italic text-lg leading-relaxed text-navy flex-1">
+              Finally, a developer who asks about business outcomes before writing code. The AI chatbot alone paid for the project in 60 days.
+            </blockquote>
+            <figcaption class="mt-6 pt-6 border-t border-rule text-sm">
+              <span class="font-semibold text-navy">James R.</span><br />
+              Operations Lead, Sydney
+            </figcaption>
+          </figure>
+
+          <figure class="bg-white border border-rule border-l-2 border-l-gold rounded-r p-8 flex flex-col">
+            <svg class="text-gold" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 17v-5.5C4 8 6 5.5 9.5 5v2.5C8 8 7 9 7 11h3v6H4zm10 0v-5.5C14 8 16 5.5 19.5 5v2.5C18 8 17 9 17 11h3v6h-6z"/></svg>
+            <blockquote class="mt-5 font-serif italic text-lg leading-relaxed text-navy flex-1">
+              He delivered on a fixed budget, on time, and actually answered his phone. Rare in this space.
+            </blockquote>
+            <figcaption class="mt-6 pt-6 border-t border-rule text-sm">
+              <span class="font-semibold text-navy">Michael T.</span><br />
+              Founder, Houston
+            </figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- RISK REVERSAL BAR -->
+    <section aria-label="Engagement terms" class="bg-navy text-white">
+      <ul class="max-w-page mx-auto px-6 lg:px-8 py-8 flex flex-col md:flex-row md:flex-wrap md:justify-center gap-x-4 gap-y-3 text-sm font-medium tracking-wide text-center">
+        <li>Fixed-Price Proposals</li>
+        <li class="hidden md:block text-gold" aria-hidden="true">&bull;</li>
+        <li>50% to Start, 50% on Delivery</li>
+        <li class="hidden md:block text-gold" aria-hidden="true">&bull;</li>
+        <li>Weekly Video Updates</li>
+        <li class="hidden md:block text-gold" aria-hidden="true">&bull;</li>
+        <li>Full Source Code &amp; Documentation Handoff</li>
+      </ul>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section id="contact" class="bg-white border-b border-rule">
+      <div class="max-w-3xl mx-auto px-6 lg:px-8 py-24 lg:py-32 text-center">
+        <p class="eyebrow">Contact</p>
+        <h2 class="mt-4 font-serif font-semibold text-navy text-3xl sm:text-4xl lg:text-5xl leading-tight">
+          Ready to Stop Wrestling With Spreadsheets and Manual Follow-Ups?
+        </h2>
+        <p class="mt-6 text-lg leading-relaxed">
+          Book a free 20-minute strategy call. I&rsquo;ll tell you exactly what&rsquo;s possible, what it costs, and how long it takes&mdash;no pressure.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+          <a href="mailto:omar.lu86@gmail.com?subject=Strategy%20Call%20Request&body=Hi%20Omar%2C%0A%0AHere%27s%20what%20we%27re%20trying%20to%20solve%3A%0A%0A%0AGood%20times%20for%20a%2020-minute%20call%20(with%20timezone)%3A%0A" class="inline-flex justify-center items-center bg-gold text-white text-lg font-semibold px-10 py-5 rounded hover:bg-gold-dark transition-colors">
+            Book Your Call
+          </a>
+          <a href="https://wa.me/8801775070627?text=Hi%20Omar%2C%20I%27d%20like%20to%20book%20a%20strategy%20call." target="_blank" rel="noopener" class="inline-flex justify-center items-center border border-navy text-navy text-lg font-semibold px-10 py-5 rounded hover:bg-navy hover:text-white transition-colors">
+            Message on WhatsApp
+          </a>
+        </div>
+        <p class="mt-8 text-sm text-slate-500">
+          Or email me directly:
+          <a href="mailto:omar.lu86@gmail.com" class="font-medium text-navy underline underline-offset-4 decoration-gold hover:text-gold">omar.lu86@gmail.com</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-navy text-slate-300">
+    <div class="max-w-page mx-auto px-6 lg:px-8 py-16 grid gap-12 md:grid-cols-3">
+      <div>
+        <a href="#top" class="font-serif text-xl font-semibold text-white">Faruk <span class="text-gold">Digital</span></a>
+        <p class="mt-4 text-sm leading-relaxed max-w-xs">
+          Production-grade software and AI automations, delivered directly by the engineer who builds them.
+        </p>
+      </div>
+
+      <nav aria-label="Footer">
+        <h3 class="text-xs font-semibold tracking-[.18em] uppercase text-white">Quick Links</h3>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li><a href="#services" class="hover:text-gold transition-colors">Services</a></li>
+          <li><a href="#work" class="hover:text-gold transition-colors">Work</a></li>
+          <li><a href="#process" class="hover:text-gold transition-colors">Process</a></li>
+          <li><a href="#contact" class="hover:text-gold transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h3 class="text-xs font-semibold tracking-[.18em] uppercase text-white">Contact</h3>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li><a href="mailto:omar.lu86@gmail.com" class="hover:text-gold transition-colors">omar.lu86@gmail.com</a></li>
+          <li><a href="https://wa.me/8801775070627" target="_blank" rel="noopener" class="hover:text-gold transition-colors">WhatsApp: +880 1775 070627</a></li>
+          <li><a href="https://www.linkedin.com/in/omarfaruk7/" target="_blank" rel="noopener" class="hover:text-gold transition-colors">linkedin.com/in/omarfaruk7</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-slate-700">
+      <p class="max-w-page mx-auto px-6 lg:px-8 py-6 text-xs text-slate-400">
+        &copy; 2026 Omar Faruk. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    (function () {
+      var toggle = document.getElementById('menu-toggle');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+
+      function setMenu(open) {
+        menu.classList.toggle('hidden', !open);
+        iconOpen.classList.toggle('hidden', open);
+        iconClose.classList.toggle('hidden', !open);
+        toggle.setAttribute('aria-expanded', String(open));
+      }
+
+      toggle.addEventListener('click', function () {
+        setMenu(menu.classList.contains('hidden'));
+      });
+
+      // Smooth scroll for in-page anchors; closes the mobile menu on navigation.
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          var target = document.querySelector(link.getAttribute('href'));
+          if (!target) return;
+          e.preventDefault();
+          setMenu(false);
+          target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+          history.pushState(null, '', link.getAttribute('href'));
+        });
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 1024) setMenu(false);
+      });
+    })();
+  </script>
+</body>
+</html>
