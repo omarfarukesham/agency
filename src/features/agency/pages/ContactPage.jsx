@@ -23,6 +23,26 @@ const validate = createValidator({
   ],
 })
 
+const FORM_FIELDS = ['name', 'email', 'businessName', 'projectType', 'budget', 'message']
+
+/** Turns a failed submission into a message for the visitor; server field errors go next to their fields. */
+function submitErrorMessage(error, setFieldErrors) {
+  if (error?.status === 422) {
+    const known = Object.fromEntries(
+      Object.entries(error.fields ?? {}).filter(([key, message]) => FORM_FIELDS.includes(key) && message),
+    )
+    if (Object.keys(known).length > 0) {
+      setFieldErrors(known)
+      return 'Please check the highlighted fields and try again.'
+    }
+    return 'Some details could not be accepted. Please check the form and try again.'
+  }
+  if (error?.status === 429) return 'Too many attempts. Please wait a few minutes and try again.'
+  if (error?.code === 'timeout') return 'The server is taking too long to respond. Please try again in a moment.'
+  if (error?.status >= 500) return 'Something went wrong on our side. Please try again in a few minutes.'
+  return 'We could not send your message. Please check your connection and try again.'
+}
+
 const NEXT_STEPS = [
   { icon: MessageSquareText, title: 'We read your message', text: 'And reply with any questions about your business and goals.' },
   { icon: Clock, title: 'Free consultation', text: 'A short call to talk through what you need. No obligation.' },
@@ -54,8 +74,8 @@ function Success({ result, name, onReset }) {
           <Info className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
           <span>
             <strong>Preview mode:</strong> this form is not connected to an inbox yet, so the message was not delivered.
-            Set <code className="rounded bg-amber-100 px-1">enquiryEndpoint</code> in{' '}
-            <code className="rounded bg-amber-100 px-1">src/data/agencyContent.js</code> to go live.
+            Set <code className="rounded bg-amber-100 px-1">VITE_ENQUIRY_ENDPOINT</code> when building the site to
+            go live.
           </span>
         </p>
       )}
@@ -91,7 +111,7 @@ export default function ContactPage() {
       message: '',
     },
     validate,
-    onSubmit: async (values) => {
+    onSubmit: async (values, { setFieldErrors }) => {
       setSubmitError('')
       try {
         const outcome = await submitEnquiry(values)
@@ -99,8 +119,8 @@ export default function ContactPage() {
         trackEvent('Lead', { content_name: values.projectType || 'General enquiry' })
         setSentName(values.name)
         setResult(outcome)
-      } catch {
-        setSubmitError('We could not send your message. Please check your connection and try again.')
+      } catch (error) {
+        setSubmitError(submitErrorMessage(error, setFieldErrors))
       }
     },
   })
@@ -170,13 +190,13 @@ export default function ContactPage() {
                 <fieldset disabled={submitting} className="mt-6 grid gap-5 sm:grid-cols-2">
                   <legend className="sr-only">Project enquiry</legend>
                   <Field label="Your name" htmlFor="name" required error={errorFor('name')}>
-                    <input {...field('name')} type="text" autoComplete="name" className={control} />
+                    <input {...field('name')} type="text" autoComplete="name" maxLength={100} className={control} />
                   </Field>
                   <Field label="Email address" htmlFor="email" required error={errorFor('email')}>
-                    <input {...field('email')} type="email" autoComplete="email" className={control} />
+                    <input {...field('email')} type="email" autoComplete="email" maxLength={254} className={control} />
                   </Field>
                   <Field label="Business name" htmlFor="businessName" required error={errorFor('businessName')} className="sm:col-span-2">
-                    <input {...field('businessName')} type="text" autoComplete="organization" className={control} />
+                    <input {...field('businessName')} type="text" autoComplete="organization" maxLength={150} className={control} />
                   </Field>
                   <Field label="Project type" htmlFor="projectType" required error={errorFor('projectType')}>
                     <select {...field('projectType')} className={control}>
@@ -198,6 +218,7 @@ export default function ContactPage() {
                     <textarea
                       {...field('message')}
                       rows={5}
+                      maxLength={5000}
                       placeholder="What does your business do, and what would you like help with?"
                       className={control}
                     />

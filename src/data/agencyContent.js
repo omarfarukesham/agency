@@ -2,17 +2,19 @@
  * Site-wide settings for the Techsphere64 agency website.
  *
  * contactEmail:     shown on the Contact page and in the footer when set.
- * enquiryEndpoint:  URL that accepts a JSON POST (your own API, or a form
- *                   service such as Formspree or Basin). While this is empty
- *                   the contact form runs in preview mode: it validates and
- *                   shows the success state, but nothing is delivered.
+ * enquiryEndpoint:  full URL of the consultation API (POST /api/v1/enquiries,
+ *                   see docs/consultation-api.md). Set it with the
+ *                   VITE_ENQUIRY_ENDPOINT environment variable at build time
+ *                   (see .env.example). While it is empty the contact form
+ *                   runs in preview mode: it validates and shows the success
+ *                   state, but nothing is delivered.
  */
 export const agencyConfig = {
   name: 'Techsphere64',
   tagline:
     'We engineer cutting-edge digital products, microservices, enterprise health-tech and workflow automations for visionary global founders.',
   contactEmail: '',
-  enquiryEndpoint: '',
+  enquiryEndpoint: import.meta.env?.VITE_ENQUIRY_ENDPOINT ?? '',
   markets: ['Saudi Arabia', 'Bhutan', 'USA', 'India', 'Sweden'],
   social: [
     { id: 'facebook', label: 'Facebook', href: 'https://www.facebook.com/techsphere64' },

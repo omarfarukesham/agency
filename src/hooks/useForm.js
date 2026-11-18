@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 /**
  * Small form helper: values, per-field errors shown after blur or submit,
@@ -9,6 +9,14 @@ export function useForm({ initialValues, validate, onSubmit }) {
   const [errors, setErrors] = useState({})
   const [touched, setTouched] = useState({})
   const [submitting, setSubmitting] = useState(false)
+  const pendingFocus = useRef(null)
+
+  useEffect(() => {
+    if (submitting || !pendingFocus.current) return
+    const { formElement, name } = pendingFocus.current
+    pendingFocus.current = null
+    formElement.querySelector(`[name="${name}"]`)?.focus()
+  }, [submitting])
 
   const setValue = useCallback(
     (name, value) => {
@@ -51,6 +59,12 @@ export function useForm({ initialValues, validate, onSubmit }) {
     [validate, values],
   )
 
+  /** Shows errors that came from outside the form, such as a server's field validation. */
+  const setFieldErrors = useCallback((fieldErrors) => {
+    setErrors((prev) => ({ ...prev, ...fieldErrors }))
+    setTouched((prev) => ({ ...prev, ...Object.fromEntries(Object.keys(fieldErrors).map((key) => [key, true])) }))
+  }, [])
+
   const handleSubmit = useCallback(
     async (event) => {
       event?.preventDefault()
@@ -66,12 +80,20 @@ export function useForm({ initialValues, validate, onSubmit }) {
       }
       setSubmitting(true)
       try {
-        await onSubmit(values)
+        await onSubmit(values, {
+          // For server-side errors: show them on the fields and focus the first one
+          // once the form is enabled again (a disabled field can't take focus).
+          setFieldErrors: (fieldErrors) => {
+            setFieldErrors(fieldErrors)
+            const first = Object.keys(fieldErrors)[0]
+            if (first && formElement) pendingFocus.current = { formElement, name: first }
+          },
+        })
       } finally {
         setSubmitting(false)
       }
     },
-    [onSubmit, validate, values],
+    [onSubmit, setFieldErrors, validate, values],
   )
 
   const reset = useCallback(
@@ -106,6 +128,7 @@ export function useForm({ initialValues, validate, onSubmit }) {
     field,
     errorFor,
     setValue,
+    setFieldErrors,
     handleSubmit,
     reset,
   }

@@ -1,0 +1,167 @@
+openapi: 3.1.0
+info:
+  title: Techsphere64 Consultation Request API
+  version: 1.0.0
+  description: >
+    Receives the "Book a Free Consultation" form from the Techsphere64 website (/contact).
+    Human-readable notes are in consultation-api.md next to this file.
+servers:
+  - url: https://api.example.com
+    description: Placeholder. Replace with the real API host.
+paths:
+  /api/v1/enquiries:
+    post:
+      operationId: createEnquiry
+      summary: Submit a consultation request
+      description: >
+        Public endpoint called directly from the browser (CORS required, no authentication).
+        The frontend treats any 2xx as success and any other status as failure.
+        Unknown fields in the body must be ignored, not rejected.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnquiryRequest'
+            example:
+              name: Jordan Lee
+              email: jordan@example.com
+              businessName: Lee Home Services
+              projectType: Website + lead automation
+              budget: "$500 – $1,000"
+              message: We run a small cleaning company and want a website with online quote requests.
+              submittedAt: '2026-11-18T14:32:05.120Z'
+      responses:
+        '201':
+          description: Enquiry saved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnquiryCreated'
+        '400':
+          description: Body missing, not valid JSON, or larger than 32 KB.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                error: invalid_json
+                message: The request body must be valid JSON.
+        '415':
+          description: Content-Type is not application/json.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: One or more fields are invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                error: validation_failed
+                message: One or more fields are invalid.
+                fields:
+                  email: Enter a valid email address.
+                  message: Use at least 20 characters.
+        '429':
+          description: Too many requests from this client.
+          headers:
+            Retry-After:
+              description: Seconds to wait before retrying.
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Unexpected server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    EnquiryRequest:
+      type: object
+      additionalProperties: true
+      required: [name, email, businessName, projectType, budget, message, submittedAt]
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+          description: Trimmed before validation.
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        businessName:
+          type: string
+          minLength: 1
+          maxLength: 150
+          description: Trimmed before validation.
+        projectType:
+          type: string
+          enum:
+            - Business website
+            - Website + lead automation
+            - Workflow automation
+            - Social media management
+            - Website + social media
+            - Something else / not sure yet
+          description: Exact strings from projectTypes in src/data/agencyContent.js.
+        budget:
+          type: string
+          enum:
+            - Under $500
+            - "$500 – $1,000"
+            - "$1,000 – $2,500"
+            - $2,500+
+            - Not sure yet
+          description: >
+            Exact strings from budgetRanges in src/data/agencyContent.js.
+            The two ranges use an en dash (U+2013) surrounded by spaces, not a hyphen.
+        message:
+          type: string
+          minLength: 20
+          maxLength: 5000
+          description: Trimmed before validation.
+        submittedAt:
+          type: string
+          format: date-time
+          description: From the visitor's clock. Informational only; record a server timestamp too.
+    EnquiryCreated:
+      type: object
+      required: [id, status, createdAt]
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [received]
+        createdAt:
+          type: string
+          format: date-time
+      example:
+        id: 3f6c2a9e-8b1d-4c47-9a52-0d7e5f1b2c34
+        status: received
+        createdAt: '2026-11-18T14:32:05.874Z'
+    Error:
+      type: object
+      required: [error, message]
+      properties:
+        error:
+          type: string
+          enum: [invalid_json, unsupported_media, validation_failed, rate_limited, server_error]
+        message:
+          type: string
+          description: Human-readable summary. Never include stack traces.
+        fields:
+          type: object
+          description: Only on 422. Maps each invalid field name to a message.
+          additionalProperties:
+            type: string
