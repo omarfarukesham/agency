@@ -1,6 +1,7 @@
 import { CircleCheck, FlaskConical } from 'lucide-react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
+import RouteTracker from '../components/common/RouteTracker.jsx'
 import ScrollToTop from '../components/common/ScrollToTop.jsx'
 import LeadDrawer from '../features/dashboard/components/LeadDrawer.jsx'
 import Sidebar from '../features/dashboard/components/Sidebar.jsx'
@@ -32,6 +33,7 @@ export default function DashboardLayout() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-700">
       <ScrollToTop />
+      <RouteTracker />
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
       <div className="lg:pl-64">

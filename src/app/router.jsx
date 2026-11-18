@@ -1,10 +1,9 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, Navigate } from 'react-router-dom'
 import NotFound from '../components/common/NotFound.jsx'
 import AboutPage from '../features/agency/pages/AboutPage.jsx'
 import ContactPage from '../features/agency/pages/ContactPage.jsx'
 import GlobalWorkPage from '../features/agency/pages/GlobalWorkPage.jsx'
 import HomePage from '../features/agency/pages/HomePage.jsx'
-import PortfolioPage from '../features/agency/pages/PortfolioPage.jsx'
 import ServicesPage from '../features/agency/pages/ServicesPage.jsx'
 import CleaningHomePage from '../features/cleaning/pages/CleaningHomePage.jsx'
 import ActivityPage from '../features/dashboard/pages/ActivityPage.jsx'
@@ -26,7 +25,8 @@ export const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: 'global-work', element: <GlobalWorkPage /> },
       { path: 'services', element: <ServicesPage /> },
-      { path: 'portfolio', element: <PortfolioPage /> },
+      // The old Portfolio page was removed; keep shared links working.
+      { path: 'portfolio', element: <Navigate to="/demo" replace /> },
       { path: 'about', element: <AboutPage /> },
       { path: 'contact', element: <ContactPage /> },
       { path: '*', element: <NotFound /> },

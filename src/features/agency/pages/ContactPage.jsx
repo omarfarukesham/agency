@@ -9,6 +9,7 @@ import { btn } from '../components/buttons.js'
 import { Container, PageHero } from '../components/ui.jsx'
 import { usePageTitle } from '../hooks/usePageTitle.js'
 import { submitEnquiry } from '../services/enquiryService.js'
+import { trackEvent } from '../../../utils/metaPixel.js'
 
 const validate = createValidator({
   name: [required('Enter your name')],
@@ -94,6 +95,8 @@ export default function ContactPage() {
       setSubmitError('')
       try {
         const outcome = await submitEnquiry(values)
+        // Conversion for Meta ads: a real visitor finished the enquiry form.
+        trackEvent('Lead', { content_name: values.projectType || 'General enquiry' })
         setSentName(values.name)
         setResult(outcome)
       } catch {

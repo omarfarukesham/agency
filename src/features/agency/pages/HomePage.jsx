@@ -53,7 +53,7 @@ function Hero() {
           </div>
           <p className="mt-9 flex items-center gap-2 text-sm text-slate-400">
             <MapPin className="size-4 text-blue-400" aria-hidden="true" />
-            Working with service businesses in {agencyConfig.markets.join(', ').replace(/, ([^,]*)$/, ' and $1')}
+            Delivering for clients in {agencyConfig.markets.join(', ').replace(/, ([^,]*)$/, ' and $1')}
           </p>
         </div>
 

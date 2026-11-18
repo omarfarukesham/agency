@@ -73,7 +73,7 @@ export default function CleaningFooter() {
             <Link to="/demo/dashboard" className="hover:text-white">
               Demo dashboard
             </Link>
-            <Link to="/portfolio" className="hover:text-white">
+            <Link to="/#demo" className="hover:text-white">
               About this demo
             </Link>
           </p>

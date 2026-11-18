@@ -4,7 +4,7 @@ One React app (Vite, React Router, Tailwind CSS) with three areas:
 
 | Route | What it is |
 |---|---|
-| `/` (plus `/services`, `/portfolio`, `/about`, `/contact`) | Techsphere64 agency website |
+| `/` (plus `/global-work`, `/services`, `/about`, `/contact`) | Techsphere64 agency website |
 | `/demo` | Public website for SparklePro Cleaning Co., a fictional business |
 | `/demo/dashboard` | SparklePro's lead management dashboard |
 

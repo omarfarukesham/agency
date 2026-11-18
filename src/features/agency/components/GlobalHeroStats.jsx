@@ -1,47 +1,58 @@
+import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Reveal from '../../../components/common/Reveal.jsx'
 import { globalMarkets, globalWorkStats } from '../../../data/globalWorkContent.js'
+import Flag from './Flag.jsx'
 import { Container } from './ui.jsx'
 
+const listCountries = (names) => names.join(', ').replace(/, ([^,]*)$/, ' and $1')
+
+/** Stats card that overlaps the bottom edge of the home hero. */
 export function GlobalHeroStats({ className = '' }) {
   return (
     <div className={`relative z-20 ${className}`}>
       <Container>
-        <Reveal className="overflow-hidden rounded-2xl border border-white/10 bg-navy-900/95 p-6 shadow-2xl shadow-navy-950/40 backdrop-blur-md sm:p-8">
-          {/* Top row: Stats Grid */}
-          <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
+        <Reveal className="overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 shadow-navy-950/15 ring-slate-200">
+          <dl className="grid grid-cols-2 gap-px bg-slate-200 lg:grid-cols-4">
             {globalWorkStats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-xl border border-white/5 bg-white/[0.03] p-4 text-center transition-colors hover:border-blue-500/30 hover:bg-white/[0.06] sm:p-5"
-              >
-                <p className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">{stat.value}</p>
-                <p className="mt-1 text-xs font-medium text-slate-300 sm:text-sm">{stat.label}</p>
+              <div key={stat.label} className="flex flex-col bg-white px-5 py-6 sm:px-7 sm:py-8">
+                <dt className="order-2 mt-2 text-sm font-semibold text-navy-900 sm:text-base">{stat.label}</dt>
+                <dd className="order-1 font-display text-4xl leading-none font-semibold tracking-tight text-navy-900 sm:text-5xl">
+                  {stat.value}
+                  <span className="text-blue-600">.</span>
+                </dd>
+                <dd className="order-3 mt-1.5 flex items-start gap-1.5 text-xs leading-snug text-slate-500 sm:text-[13px]">
+                  {stat.flag ? <Flag code={stat.flag} className="mt-px h-3 w-4.5 rounded-xs" /> : null}
+                  {stat.context}
+                </dd>
               </div>
             ))}
-          </div>
+          </dl>
 
-          {/* Bottom row: Happy Working Partners with Flag & Country pills */}
-          <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-5 lg:flex-row">
-            <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-slate-300 uppercase">
-              <span className="size-2 rounded-full bg-emerald-400" />
-              <span>Happy Working Partners</span>
+          <div className="flex flex-col gap-4 border-t border-slate-200 bg-slate-50 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-7">
+            <div className="flex items-center gap-4">
+              <ul className="flex shrink-0 -space-x-2" aria-hidden="true">
+                {globalMarkets.map((market) => (
+                  <li key={market.code}>
+                    <Flag
+                      code={market.code}
+                      className="size-8 rounded-full ring-2 ring-white sm:size-9"
+                    />
+                  </li>
+                ))}
+              </ul>
+              <p className="text-sm leading-snug text-slate-600">
+                <span className="font-semibold text-navy-900">Happy founders in {globalMarkets.length} countries</span>
+                <span className="block">{listCountries(globalMarkets.map((market) => market.country))}</span>
+              </p>
             </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              {globalMarkets.map((m) => (
-                <Link
-                  key={m.code}
-                  to="/global-work"
-                  className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-200 transition-colors hover:border-blue-400/50 hover:bg-white/10 hover:text-white"
-                >
-                  <span className="text-base leading-none" role="img" aria-label={m.country}>
-                    {m.flag}
-                  </span>
-                  <span>{m.country}</span>
-                </Link>
-              ))}
-            </div>
+            <Link
+              to="/global-work"
+              className="group inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700"
+            >
+              See our global work
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+            </Link>
           </div>
         </Reveal>
       </Container>

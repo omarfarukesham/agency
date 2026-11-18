@@ -3,11 +3,12 @@
  * Saudi Arabia, Bhutan, USA, India, and Sweden.
  */
 
+/** Each stat points back to a delivered project, so every number can be explained. */
 export const globalWorkStats = [
-  { value: '5+', label: 'Countries Served' },
-  { value: '100%', label: 'Happy Global Founders' },
-  { value: '14+', label: 'Microservices Architected' },
-  { value: 'Zero', label: 'Paperwork Automation' },
+  { value: '5', label: 'Countries delivered to', context: 'Asia, Europe, Middle East & North America' },
+  { value: '4', label: 'Industries', context: 'Healthcare · Aviation · E‑commerce · Mobile apps' },
+  { value: '14', label: 'Distributed modules', context: 'Multi‑vendor e‑commerce', flag: 'SE' },
+  { value: '0', label: 'Paper forms', context: 'QR-based digital hospital', flag: 'IN' },
 ]
 
 export const globalMarkets = [
@@ -54,6 +55,8 @@ export const globalProjects = [
     country: 'India',
     countryCode: 'IN',
     flag: '🇮🇳',
+    industry: 'Healthcare',
+    shortTitle: 'Digital hospital system',
     title: 'Fully Automated Digital Hospital Management System',
     subtitle: 'ABDM Govt. Compliant Healthcare Automation Suite',
     highlighted: true,
@@ -62,14 +65,16 @@ export const globalProjects = [
       'A mission-critical, end-to-end digital hospital ecosystem engineered for Ayushman Bharat Digital Mission (ABDM) government compliance. Replaces all physical clipboards and queues with completely automated, QR-based patient bookings, diagnostic reporting, and real-time electronic medical records (EMR).',
     images: [
       {
-        src: '/images/working/IndianProject.png',
-        alt: 'India ABDM compliant digital hospital management dashboard and analytics',
-        caption: 'Central Hospital Control Center & ABDM Health Records',
-      },
-      {
-        src: '/images/working/IndianProjects.png',
+        src: '/images/working/IndianProjects.webp',
+        width: 1903, height: 862,
         alt: 'India digital hospital module overview, diagnostic tracking and billing',
         caption: 'Integrated Diagnostic, Pharmacy & Patient Records View',
+      },
+      {
+        src: '/images/working/IndianProject.webp',
+        width: 1912, height: 868,
+        alt: 'India ABDM compliant digital hospital management dashboard and analytics',
+        caption: 'Central Hospital Control Center & ABDM Health Records',
       },
     ],
     client: 'Private Hospital Network & Diagnostics',
@@ -79,28 +84,75 @@ export const globalProjects = [
       'National ABDM ABHA health record synchronization for clinical data portability',
       'Real-time prescription-to-pharmacy fulfillment with barcode validation',
     ],
+    /** The patient-facing mobile app, shown beside its feature list. */
+    app: {
+      image: {
+        src: '/images/working/IndianPatientApp.webp',
+        width: 1254,
+        height: 1254,
+        alt: 'Three screens of the patient mobile app: medicine ordering with order tracking, doctor appointments, and medicine categories',
+      },
+      title: 'Book doctors, order medicines, track every step',
+      text: 'Patients handle their whole hospital visit from their phone, and every action lands directly in the hospital system.',
+      features: [
+        {
+          icon: 'calendar',
+          title: 'Doctor appointments',
+          text: 'Book in-clinic consultations by specialty, pay in the app and book again in one tap.',
+        },
+        {
+          icon: 'prescription',
+          title: 'Digital prescriptions',
+          text: 'Prescriptions from each visit are saved in the app, ready to view or reorder.',
+        },
+        {
+          icon: 'cart',
+          title: 'Medicine orders',
+          text: 'Order from the hospital pharmacy and follow the order to the counter with a token.',
+        },
+        {
+          icon: 'records',
+          title: 'Health records',
+          text: 'Reports, prescriptions and visits kept together in one place.',
+        },
+      ],
+    },
+    /** The patient's paper-free path through the hospital, shown as a flow. */
+    journey: [
+      { icon: 'smartphone', title: 'Book in the app', text: 'Patient picks a doctor and slot, and gets a QR pass.' },
+      { icon: 'qr', title: 'Scan at reception', text: 'One scan checks them in and issues a queue token.' },
+      { icon: 'stethoscope', title: 'Consultation', text: 'The doctor sees the history and writes a digital prescription.' },
+      { icon: 'pill', title: 'Pharmacy & labs', text: 'Medicines and tests arrive as orders, not paper slips.' },
+      { icon: 'records', title: 'Records in the app', text: 'Reports and prescriptions sync to the app and ABHA record.' },
+    ],
     modules: [
       {
+        icon: 'stethoscope',
         title: 'Doctor Consultation Suite',
         detail: 'Digital prescriptions, past medical history, automated dosage calculations & vitals monitor.',
       },
       {
+        icon: 'reception',
         title: 'Front-Desk & Reception',
         detail: 'Dynamic queue management, token display screens, emergency priority routing.',
       },
       {
+        icon: 'pill',
         title: 'Pharmacy Management',
         detail: 'Batch inventory control, automated stock alerts, digital dispenser dispatch.',
       },
       {
+        icon: 'lab',
         title: 'Diagnostic & Pathology Labs',
         detail: 'Direct lab analyzer integration, barcode sample tagging, automated SMS/WhatsApp test reports.',
       },
       {
+        icon: 'smartphone',
         title: 'Patient Mobile App',
         detail: 'Self check-in, ABHA integration, appointment booking, digital billing & prescription archive.',
       },
       {
+        icon: 'qr',
         title: 'Zero Paperwork QR Flow',
         detail: 'Patients simply scan at the door to retrieve records, queue, and settle copayments seamlessly.',
       },
@@ -112,6 +164,8 @@ export const globalProjects = [
     country: 'Sweden',
     countryCode: 'SE',
     flag: '🇸🇪',
+    industry: 'E-commerce',
+    shortTitle: 'Multi-vendor e-commerce platform',
     title: 'Multi-Vendor Microservice E-Commerce Engine',
     subtitle: 'High-Concurrency Distributed Cloud Architecture',
     highlighted: false,
@@ -120,12 +174,14 @@ export const globalProjects = [
       'Engineered an enterprise multi-vendor commerce platform running on 14 independent distributed microservice modules. Designed for high resilience, seamless vendor onboarding, Nordic payment integrations, and ultra-low latency checkout experiences.',
     images: [
       {
-        src: '/images/working/swedenproject.jpg',
+        src: '/images/working/swedenproject.webp',
+        width: 1200, height: 763,
         alt: 'Sweden multi-vendor microservice ecommerce platform interface',
         caption: 'Storefront Experience & Merchant Catalog Engine',
       },
       {
-        src: '/images/working/swedenproject2.jpg',
+        src: '/images/working/swedenproject2.webp',
+        width: 1200, height: 748,
         alt: 'Sweden ecommerce backend management and distributed vendor control',
         caption: 'Vendor Analytics & Multi-tenant Admin Suite',
       },
@@ -150,6 +206,10 @@ export const globalProjects = [
     country: 'USA',
     countryCode: 'US',
     flag: '🇺🇸',
+    industry: 'Mobile app',
+    shortTitle: 'Islami Journal mobile app',
+    /** Square marketing image of phone screens: shown without a browser frame. */
+    frame: 'plain',
     title: 'Islami Journal & Mindfulness App',
     subtitle: 'Daily Reflection, Habit Tracking & Spiritual Growth',
     highlighted: false,
@@ -158,7 +218,8 @@ export const globalProjects = [
       'A beautifully crafted spiritual journaling and mindfulness mobile application tailored for global Muslims. Features guided prompts, daily habit tracking, Quranic insights, and encrypted private reflections.',
     images: [
       {
-        src: '/images/working/usaproject.jpg',
+        src: '/images/working/usaproject.webp',
+        width: 1080, height: 1080,
         alt: 'USA Islami Journal mobile application interface',
         caption: 'Mobile Application Screens, Daily Prompts & Habit Tracking',
       },
@@ -181,6 +242,8 @@ export const globalProjects = [
     country: 'Bhutan',
     countryCode: 'BT',
     flag: '🇧🇹',
+    industry: 'Aviation',
+    shortTitle: 'Airline booking system',
     title: 'Airlines Flight Booking & Operations System',
     subtitle: 'High-Altitude Aviation Ticketing & Passenger Scheduling',
     highlighted: false,
@@ -189,12 +252,14 @@ export const globalProjects = [
       'A comprehensive airline booking and passenger management system built for regional aviation routes. Handled dynamic seat mapping, GDS connectivity, passenger manifest generation, and instant boarding pass verification.',
     images: [
       {
-        src: '/images/working/BhutanProject.png',
+        src: '/images/working/BhutanProject.webp',
+        width: 1893, height: 881,
         alt: 'Bhutan airlines booking system search and flight schedule dashboard',
         caption: 'Flight Search, Fare Engine & Seat Selection System',
       },
       {
-        src: '/images/working/BhutanProject2.png',
+        src: '/images/working/BhutanProject2.webp',
+        width: 1867, height: 857,
         alt: 'Bhutan airlines flight management and passenger manifest console',
         caption: 'Operations Console, Manifests & Digital Boarding Management',
       },
@@ -217,6 +282,8 @@ export const globalProjects = [
     country: 'Saudi Arabia',
     countryCode: 'SA',
     flag: '🇸🇦',
+    industry: 'Enterprise',
+    shortTitle: 'Enterprise digital platform',
     title: 'Enterprise Digital Transformation & Bilingual Workflows',
     subtitle: 'Modernization & Process Automation Suite',
     highlighted: false,
@@ -225,7 +292,8 @@ export const globalProjects = [
       'Enterprise-grade custom web platforms and automated business process suites built for Saudi business founders, with full Arabic (RTL) & English localization and regional compliance.',
     images: [
       {
-        src: '/images/working/sudiaProject.png',
+        src: '/images/working/sudiaProject.webp',
+        width: 1908, height: 863,
         alt: 'Saudi Arabia enterprise digital platform interface and management console',
         caption: 'Saudi Arabia Enterprise Workflow & Management System',
       },

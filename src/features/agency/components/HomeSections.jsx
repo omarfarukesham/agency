@@ -152,7 +152,7 @@ export function ProcessSteps() {
 
 export function FeaturedProject() {
   return (
-    <section className="bg-navy-900 py-20 lg:py-28">
+    <section id="demo" className="scroll-mt-16 bg-navy-900 py-20 lg:py-28">
       <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <SectionHeading eyebrow="Featured project · Demonstration" title="Cleaning Business Website + Lead Dashboard" onDark>
@@ -176,8 +176,8 @@ export function FeaturedProject() {
               Explore Live Demo
               <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
-            <Link to="/portfolio" className={btn.outlineOnDark}>
-              Read the project overview
+            <Link to="/demo/dashboard" className={btn.outlineOnDark}>
+              Open the dashboard
             </Link>
           </div>
         </div>

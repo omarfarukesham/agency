@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom'
+import RouteTracker from '../components/common/RouteTracker.jsx'
 import ScrollToTop from '../components/common/ScrollToTop.jsx'
 import AgencyFooter from '../features/agency/components/AgencyFooter.jsx'
 import AgencyNav from '../features/agency/components/AgencyNav.jsx'
@@ -13,6 +14,7 @@ export default function AgencyLayout() {
         Skip to content
       </a>
       <ScrollToTop />
+      <RouteTracker />
       <AgencyNav />
       <main id="main" className="flex-1">
         <Outlet />

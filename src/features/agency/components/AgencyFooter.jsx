@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { agencyConfig, agencyServices } from '../../../data/agencyContent.js'
 import Logo from './Logo.jsx'
+import SocialIcon from './SocialIcon.jsx'
 
 const COLUMNS = [
   {
@@ -12,7 +13,6 @@ const COLUMNS = [
     links: [
       { to: '/global-work', label: 'Global Work' },
       { to: '/services', label: 'Services' },
-      { to: '/portfolio', label: 'Portfolio' },
       { to: '/about', label: 'About' },
       { to: '/contact', label: 'Contact' },
     ],
@@ -43,6 +43,21 @@ export default function AgencyFooter() {
               {agencyConfig.contactEmail}
             </a>
           ) : null}
+          <ul className="mt-6 flex gap-3" aria-label="Techsphere64 on social media">
+            {agencyConfig.social.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${item.label} (opens in a new tab)`}
+                  className="flex size-10 items-center justify-center rounded-lg bg-white/5 text-slate-300 ring-1 ring-white/10 transition-colors hover:bg-blue-600 hover:text-white hover:ring-blue-600"
+                >
+                  <SocialIcon name={item.id} />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {COLUMNS.map((column) => (

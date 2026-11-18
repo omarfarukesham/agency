@@ -14,6 +14,10 @@ export const agencyConfig = {
   contactEmail: '',
   enquiryEndpoint: '',
   markets: ['Saudi Arabia', 'Bhutan', 'USA', 'India', 'Sweden'],
+  social: [
+    { id: 'facebook', label: 'Facebook', href: 'https://www.facebook.com/techsphere64' },
+    { id: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/company/techsphere-64/posts/?feedView=all' },
+  ],
 }
 
 export const agencyServices = [
@@ -250,7 +254,7 @@ export const faqs = [
     a: 'The Pixel is a small piece of code on your website that tells Meta when someone who saw your ad goes on to request a quote. That shows which ads bring real enquiries, and lets Meta show your ads to people more likely to do the same.',
   },
   {
-    q: 'Is the cleaning company in your portfolio a real client?',
+    q: 'Is the cleaning company in your demo a real client?',
     a: 'No. SparklePro Cleaning Co. is a fictional business we created to demonstrate what we build. The website and dashboard are fully interactive, and the data in them is sample data.',
   },
   {
